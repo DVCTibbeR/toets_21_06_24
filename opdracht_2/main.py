@@ -1,5 +1,4 @@
 from math import ceil
-from random import randint
 
 def getAmountFuelStops(kilometersPerLiter, fuelCapacity, kilometersLeft):
 	kmPerCycle = fuelCapacity * kilometersPerLiter
