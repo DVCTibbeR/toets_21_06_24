@@ -1,17 +1,20 @@
-from math import floor
+from math import ceil
 from random import randint
 
 def getAmountFuelStops(kilometersPerLiter, fuelCapacity, kilometersLeft):
 	kmPerCycle = fuelCapacity * kilometersPerLiter
 
-	return floor(kilometersLeft / kmPerCycle)
+	return ceil(kilometersLeft / kmPerCycle) - 1
 
 # Test
-for _ in range(6):
-	kmPerLiter = randint(5, 15)
-	fuelCapacity = randint(10, 30)
-	kmLeft = randint(25, 500)
+test = getAmountFuelStops(1, 1, 10)
+print([1, 1, 10], 9, test == 9)
 
-	fuelStops = getAmountFuelStops(kmPerLiter, fuelCapacity, kmLeft)
+test = getAmountFuelStops(10, 1, 10)
+print([10, 1, 10], 0, test == 0)
 
-	print(f"Als je nog {kmLeft} km moet rijden, er {fuelCapacity} liter in je tank past en je {kmPerLiter} km per liter kan rijden tank je onderweg {fuelStops} keer.")
+test = getAmountFuelStops(30, 10, 230)
+print([30, 10, 230], 0, test == 0)
+
+test = getAmountFuelStops(20, 10, 230)
+print([30, 10, 230], 1, test == 1)
